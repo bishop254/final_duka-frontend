@@ -36,11 +36,11 @@
   "jest": {
     "preset": "jest-preset-angular",
     "setupFilesAfterEnv": [
-      "<rootdir>/src/setup.jest.ts"
+      "D:/final_duka/frontend/src/setup.jest.ts"
     ],
     "testPathIgnorePatterns": [
-      "<rootdir>/node_modules/",
-      "<rootdir>/dist/"
+      "D:/final_duka/frontend/node_modules",
+      "D:/final_duka/frontend/dist"
     ],
     "globals": {
       "ts-jest": {
