@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Dosis&family=Indie+Flower&family=Permanent+Marker&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Dosis", sans-serif;
+  //   font-family: 'Indie Flower', cursive;
+  //   font-family: 'Permanent Marker', cursive;  font-size: 18px;
+  font-weight: bold;
+}
