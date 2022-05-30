@@ -44,17 +44,18 @@ export class HomeComponent implements OnInit {
 
     event.target.classList.add('selected');
 
-    let selectedCategory: string = event.target.outerText;
+    let selectedCategoryName: string = event.target.outerText;
 
     //Toggle between all categories and a specific one.
     if (selectedElement === event.target) {
       event.target.classList.remove('selected');
       this.products = this.allCategoryProducts;
     } else {
-      let categoryProducts = this.allCategoryProducts.filter((product: any) => {
-        selectedCategory[0] === product.category[0] &&
-          selectedCategory.includes(product.category);
-      });
+      let categoryProducts = this.allCategoryProducts.filter(
+        (product: any) =>
+          selectedCategoryName[0] == product.category[0] &&
+          selectedCategoryName.includes(product.category)
+      );
 
       this.products = categoryProducts;
     }
