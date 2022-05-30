@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
   }
 
   getCategories() {
-    let categories!: Array<string>;
+    let categories: Array<string> = [];
     this.products.forEach((product: any) => {
       categories.push(product.category);
     });
