@@ -1,0 +1,24 @@
+<div class="categories">
+    <span *ngFor="let category of categoryNames" (click)="updateProductsCategory($event)">
+      {{ category }}
+    </span>
+  </div>
+  <div class="container" *ngIf="products.length !== 0">
+    <div *ngFor="let prod of products" class="products">
+      <div class="details">
+        <p class="prodTitle">{{ prod.title }}</p>
+        <p class="prodPrice">Kshs. {{ (prod.price * 116.20).toFixed(2) }}</p> 
+      </div>
+      <div class="img">
+        <img [src]="prod.image" alt="" />
+      </div>
+      <div class="hoverContainer">
+        <fa-icon [icon]="faEye" (click)="viewProduct(prod.id)"></fa-icon>
+        <fa-icon [icon]="faBasket" (click)="addToCart(prod.id)"></fa-icon>
+      </div>
+    </div>
+  </div>
+  <div class="container"  *ngIf="products.length == 0">
+    <div class="loading">Loading your products...</div>
+  </div>
+  
