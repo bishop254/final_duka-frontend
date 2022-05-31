@@ -1,0 +1,22 @@
+<div class="container" *ngIf="product">
+    <div class="product" *ngFor="let prod of product">
+      <div class="image">
+        <img [src]="prod.image" alt="" />
+      </div>
+      <div class="details">
+        <p>{{ prod.title }}</p>
+        <p class="desc">{{ prod.description }}</p>
+        <p>$ {{ prod.price }}</p>
+        <div class="icons">
+          <fa-icon [icon]="faBasket" (click)="addToCart()" class="icon"
+            >4</fa-icon
+          >
+          <fa-icon [icon]="faHeart" class="icon"></fa-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!product">
+    <div class="loading">Loading product...</div>
+  </div>
+  
