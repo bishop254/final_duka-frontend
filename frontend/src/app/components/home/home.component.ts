@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 import { faEye, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { CartService } from 'src/app/services/cart.service';
 
-import { ProductsService } from 'src/app/services/products.service';
+import { ProductsService } from '../../services/products.service';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +19,10 @@ export class HomeComponent implements OnInit {
   faEye = faEye;
   faBasket = faShoppingCart;
 
-  constructor(private prodServ: ProductsService, private router: Router) {}
+  constructor(
+    private prodServ: ProductsService,
+    private cartServ: CartService
+  ) {}
 
   ngOnInit(): void {
     this.prodServ.getProducts().subscribe((resp) => {
@@ -56,7 +59,6 @@ export class HomeComponent implements OnInit {
           selectedCategoryName[0] == product.category[0] &&
           selectedCategoryName.includes(product.category)
       );
-
       this.products = categoryProducts;
     }
   }
@@ -66,6 +68,9 @@ export class HomeComponent implements OnInit {
   }
 
   addToCart(id: number) {
-    console.log('added');
+    let itemToAdd = this.allCategoryProducts.filter(
+      (product: any) => product.id === id
+    );
+    this.cartServ.updateCartList(itemToAdd);
   }
 }
