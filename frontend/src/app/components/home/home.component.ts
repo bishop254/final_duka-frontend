@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { faEye, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import { CartService } from 'src/app/services/cart.service';
 
+import { CartService } from '../../services/cart.service';
 import { ProductsService } from '../../services/products.service';
 
 @Component({
