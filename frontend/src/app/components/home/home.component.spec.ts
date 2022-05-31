@@ -5,6 +5,7 @@ describe('HomeComponent', () => {
   let fixture: HomeComponent;
   let prodServMock: any;
   let cartServMock: any;
+  let routerMock: any;
 
   beforeEach(() => {
     //Mock ProductService
@@ -17,7 +18,12 @@ describe('HomeComponent', () => {
       updateCart: jest.fn(),
     };
 
-    fixture = new HomeComponent(prodServMock, cartServMock);
+    //Mock Router
+    routerMock = {
+      navigate: jest.fn(),
+    };
+
+    fixture = new HomeComponent(prodServMock, cartServMock, routerMock);
   });
 
   it('should be created', () => {
