@@ -1,0 +1,25 @@
+<header>
+    <div class="container">
+      <a routerLink="/home" class="logo">MiDuka</a>
+      <nav>
+        <ul>
+          <li *ngIf="isAuthenticated" (click)="logout()">
+            <a routerLink="/login">Log-Out </a>
+          </li>
+          <li *ngIf="!isAuthenticated">
+            <a routerLink="/login">Log-In </a>
+          </li>
+          <li  *ngIf="!isAuthenticated">
+            <a routerLink="/signup">Sign-Up </a>
+          </li>
+          <li class="cart" *ngIf="isAuthenticated">
+            <a routerLink="/cart"
+              > <fa-icon [icon]="cart"></fa-icon>
+              <span class="cartNo">{{ cartNumber }}</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
