@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { faEye, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
@@ -21,7 +22,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private prodServ: ProductsService,
-    private cartServ: CartService
+    private cartServ: CartService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -64,7 +66,7 @@ export class HomeComponent implements OnInit {
   }
 
   viewProduct(id: number) {
-    console.log('viewed');
+    this.router.navigate([`/product/${id}`]);
   }
 
   addToCart(id: number) {
