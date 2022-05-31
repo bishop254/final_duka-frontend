@@ -7,13 +7,16 @@ describe('HomeComponent', () => {
   let cartServMock: any;
 
   beforeEach(() => {
+    //Mock ProductService
     prodServMock = {
       getProducts: jest.fn(),
     };
 
+    //Mock CartService
     cartServMock = {
       updateCart: jest.fn(),
     };
+
     fixture = new HomeComponent(prodServMock, cartServMock);
   });
 
