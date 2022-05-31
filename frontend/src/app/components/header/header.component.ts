@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
-import { CartService } from 'src/app/services/cart.service';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -24,6 +24,5 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     console.log('logged out');
-    
   }
 }
