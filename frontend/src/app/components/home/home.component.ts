@@ -7,6 +7,7 @@ import {
   faSearch,
   faShoppingCart,
 } from '@fortawesome/free-solid-svg-icons';
+import { NotificationsService } from 'src/app/services/notifications.service';
 
 import { CartService } from '../../services/cart.service';
 import { ProductsService } from '../../services/products.service';
@@ -30,6 +31,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private prodServ: ProductsService,
     private cartServ: CartService,
+    private notif: NotificationsService,
     private router: Router
   ) {}
 
@@ -99,6 +101,7 @@ export class HomeComponent implements OnInit {
     if (items.length > 0) {
       this.products = items;
     } else if (items.length === 0) {
+      this.notif.showError('Cannot find matching product');
       this.searchForm = this.createFormGroup();
       this.products = this.allCategoryProducts;
     }
