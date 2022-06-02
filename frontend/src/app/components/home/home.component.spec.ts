@@ -15,7 +15,7 @@ describe('HomeComponent', () => {
 
     //Mock CartService
     cartServMock = {
-      updateCart: jest.fn(),
+      updateCartList: jest.fn(),
     };
 
     //Mock Router
@@ -71,5 +71,23 @@ describe('HomeComponent', () => {
 
     expect(mockEvent.target.classList.add).toBeCalledTimes(1); //Ensure a class name is added to our clicked element
     expect(fixture.products).toBeTruthy(); //Ensure our products array contain a value.
+  });
+
+  it('should view a specific product', () => {
+    const mockID = 3;
+    fixture.viewProduct(mockID);
+    expect(routerMock.navigate).toBeCalledTimes(1);
+  });
+
+  it('should add an item to the cart', () => {
+    fixture.allCategoryProducts = [{ id: 2, name: 'bag2' },{ id: 3, name: 'bag3' }]
+    
+    const mockID = 3;
+    const mockItem = [{ id: mockID, name: 'bag3' }];
+
+    fixture.addToCart(mockID);
+
+    expect(cartServMock.updateCartList).toBeCalledWith(mockItem)
+    expect(cartServMock.updateCartList).toBeCalledTimes(1)
   });
 });
