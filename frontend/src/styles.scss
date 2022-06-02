@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Dosis&family=Indie+Flower&family=Permanent+Marker&display=swap");
+
+@import "~ngx-toastr/toastr";
+
 * {
   box-sizing: border-box;
 }
@@ -9,4 +12,12 @@ body {
   //   font-family: 'Indie Flower', cursive;
   //   font-family: 'Permanent Marker', cursive;  font-size: 18px;
   font-weight: bold;
+
+  .overlay-container {
+    position: sticky;
+    bottom: 90%;
+    width: 50%;
+    opacity: 0.7;
+    transition: all 0.2s ease;
+  }
 }
