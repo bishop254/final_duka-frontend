@@ -9,9 +9,10 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ProductComponent } from './components/product/product.component';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, HeaderComponent, ProductComponent],
+  declarations: [AppComponent, HomeComponent, HeaderComponent, ProductComponent, CartComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
