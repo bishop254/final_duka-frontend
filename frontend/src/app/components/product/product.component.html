@@ -6,7 +6,7 @@
       <div class="details">
         <p>{{ prod.title }}</p>
         <p class="desc">{{ prod.description }}</p>
-        <p>$ {{ prod.price }}</p>
+        <p>Kshs {{ (prod.price * 116.20).toFixed(2) }}</p>
         <div class="icons">
           <fa-icon [icon]="faBasket" (click)="addToCart()" class="icon"
             >4</fa-icon
