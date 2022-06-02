@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { of } from 'rxjs';
+
 import { CartService } from '../../services/cart.service';
 
 import { HeaderComponent } from './header.component';
