@@ -1,109 +1,121 @@
 .categories {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  
-    .selected {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  .selected {
+    border-bottom: 0px;
+    background: wheat;
+    margin-top: 2px;
+    padding-top: 0px;
+  }
+  span {
+    margin: 5px 10px;
+    padding: 5px;
+    border-bottom: 3px solid black;
+    transition: 0.3s all ease;
+
+    &:hover {
       border-bottom: 0px;
-      background: wheat;
-      margin-top: 2px;
-      padding-top: 0px;
     }
-    span {
-      margin: 5px 10px;
-      padding: 5px;
-      border-bottom: 3px solid black;
-      transition: 0.3s all ease;
-  
-      &:hover {
-        border-bottom: 0px;
-      }
-  
-      &:active {
-        color: blue;
-      }
+
+    &:active {
+      color: blue;
     }
   }
-  
-  .container {
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+
+  input {
+    margin-right: 0.5rem;
+    height: 30px;
+    text-align: center;
+  }
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px auto;
+
+  .products {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 20px auto;
-  
-    .products {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      flex-direction: column-reverse;
-      width: 250px;
-      max-height: 400px;
-      min-width: 210px;
-      margin: 10px 20px;
-      border: 2px solid black;
-      border-radius: 15px;
-      transition: 1s all ease;
-      position: relative;
-  
-      .hoverContainer {
-        display: none;
-      }
-  
-      &:hover {
-        border: 0px;
-        .img {
-          opacity: 0.3;
-        }
-  
-        .hoverContainer {
-          display: flex;
-          justify-content: space-around;
-          align-items: center;
-          border-radius: 50%;
-          position: absolute;
-          opacity: 0.9;
-          width: 120px;
-          height: 120px;
-          color: white;
-          background-color: black;
-        }
-      }
-  
-      .hoverContainer :hover{
-        transform: 1.2;
-        color: red;
-      }
-  
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column-reverse;
+    width: 250px;
+    max-height: 400px;
+    min-width: 210px;
+    margin: 10px 20px;
+    border: 2px solid black;
+    border-radius: 15px;
+    transition: 1s all ease;
+    position: relative;
+
+    .hoverContainer {
+      display: none;
+    }
+
+    &:hover {
+      border: 0px;
       .img {
-        height: 200px;
-        width: 150px;
-        margin: 5px;
-        transition: 1s all ease;
-  
-        img {
-          object-fit: contain;
-          height: 100%;
-          width: 100%;
-        }
+        opacity: 0.3;
       }
-  
-      .details {
-        padding: 10px;
-        text-align: center;
-  
-        .prodTitle {
-          font-family: "Indie Flower", cursive;
-          font-weight: bold;
-          letter-spacing: 1px;
-          font-size: 18px;
-        }
-  
-        .prodPrice {
-          border-top: 1px solid black;
-          width: 50%;
-          margin: auto;
-        }
+
+      .hoverContainer {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border-radius: 50%;
+        position: absolute;
+        opacity: 0.9;
+        width: 120px;
+        height: 120px;
+        color: white;
+        background-color: black;
+      }
+    }
+
+    .hoverContainer :hover {
+      transform: 1.2;
+      color: red;
+    }
+
+    .img {
+      height: 200px;
+      width: 150px;
+      margin: 5px;
+      transition: 1s all ease;
+
+      img {
+        object-fit: contain;
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    .details {
+      padding: 10px;
+      text-align: center;
+
+      .prodTitle {
+        font-family: "Indie Flower", cursive;
+        font-weight: bold;
+        letter-spacing: 1px;
+        font-size: 18px;
+      }
+
+      .prodPrice {
+        border-top: 1px solid black;
+        width: 50%;
+        margin: auto;
       }
     }
   }
-  
+}

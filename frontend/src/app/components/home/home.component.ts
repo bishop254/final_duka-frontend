@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { faEye, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import {
+  faEye,
+  faSearch,
+  faShoppingCart,
+} from '@fortawesome/free-solid-svg-icons';
 
 import { CartService } from '../../services/cart.service';
 import { ProductsService } from '../../services/products.service';
@@ -15,10 +20,12 @@ export class HomeComponent implements OnInit {
   products!: Array<any>; //Holds sorted products
   allCategoryProducts!: Array<any>; //Holds all our products
   categoryNames!: Set<string>; //Holds our different category names.
+  searchForm!: FormGroup;
 
   //icons
   faEye = faEye;
   faBasket = faShoppingCart;
+  search = faSearch;
 
   constructor(
     private prodServ: ProductsService,
@@ -33,6 +40,7 @@ export class HomeComponent implements OnInit {
 
       this.getCategories();
     });
+    this.searchForm = this.createFormGroup();
   }
 
   getCategories() {
@@ -74,5 +82,25 @@ export class HomeComponent implements OnInit {
       (product: any) => product.id === id
     );
     this.cartServ.updateCartList(itemToAdd);
+  }
+
+  createFormGroup() {
+    return new FormGroup({
+      search: new FormControl('', [Validators.required, Validators.min(1)]),
+    });
+  }
+
+  doSearch() {
+    let searchTerm = this.searchForm.value.search;
+    let items = this.allCategoryProducts.filter((product: any) =>
+      product.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    if (items.length > 0) {
+      this.products = items;
+    } else if (items.length === 0) {
+      this.searchForm = this.createFormGroup();
+      this.products = this.allCategoryProducts;
+    }
   }
 }
