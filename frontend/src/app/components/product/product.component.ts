@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { faHeart, faHeartbeat, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faHeartbeat, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 import { CartService } from '../../services/cart.service';
 import { ProductsService } from '../../services/products.service';
