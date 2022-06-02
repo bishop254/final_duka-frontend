@@ -1,0 +1,47 @@
+<ng-container *ngIf="cartArray.length != 0">
+    <div class="container">
+      <div class="cart">
+        <div class="cartItem" *ngFor="let item of cartArray">
+          <div class="image">
+            <img [src]="item.image" alt="" />
+          </div>
+          <div class="details">
+            <p>{{ item.title }}</p>
+            <p>Unit price: Kshs. {{ (item.price * 116.2).toFixed(2) }}</p>
+            <button (click)="removeItem(item)" class="btn">
+              <fa-icon [icon]="trash"></fa-icon>
+              Remove Item
+            </button>
+          </div>
+        </div>
+        <p>
+          <strong style="font-size: 20px"> TOTAL: </strong>
+          Kshs. {{ (total * 116.2).toFixed(2) }}
+        </p>
+        <button (click)="emptyCart()" class="btn">
+          <fa-icon [icon]="trash"></fa-icon>
+          Empty Cart
+        </button>
+  
+        <button routerLink="/checkout" class="btn btn-checkout">
+          <fa-icon [icon]="trash"></fa-icon>
+          Proceed to checkout.
+        </button>
+      </div>
+    </div>
+  </ng-container>
+  
+  <ng-container *ngIf="cartArray.length === 0">
+    <div class="containerEmpty">
+      <div class="card">
+        <h5 class="card-title">My Cart</h5>
+      </div>
+      <div class="center">
+        <img src="/assets/emptyCart.jpg" alt="" />
+        <h4>Your cart is empty</h4>
+        <h6>Add item(s) to cart</h6>
+        <button routerLink="/home" class="btn">Continue Shopping</button>
+      </div>
+    </div>
+  </ng-container>
+  
