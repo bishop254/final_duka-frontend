@@ -1,0 +1,16 @@
+<div class="form-container" *ngIf="!paid">
+    <form [formGroup]="checkoutForm" (ngSubmit)="checkout()" novalidate>
+      <label for="fName">Total: Kshs {{ total }}</label>
+      <br />
+      <label for="fName">Mobile</label>
+      <input type="number" placeholder="254xxxxxxxxx" formControlName="mobile" />
+      <button [disabled]="!checkoutForm.valid" type="submit" class="btn-submit">
+        Pay for Products
+      </button>
+    </form>
+  </div>
+  
+  <div class="form-container" *ngIf="paid">
+    Payment request was sent to the input number(customer)
+  </div>
+  
