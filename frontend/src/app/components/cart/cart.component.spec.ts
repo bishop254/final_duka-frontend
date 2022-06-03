@@ -28,6 +28,7 @@ describe('CartComponent', () => {
     const fx = TestBed.createComponent(CartComponent);
     fixture = fx.componentInstance;
     const cartService = fx.debugElement.injector.get(CartService); //Lets us inject our CartService
+    
 
     let product1 = [{ name: 'one', price: 1 }];
     let product2 = [{ name: 'two', price: 1 }];

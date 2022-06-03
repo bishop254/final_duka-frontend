@@ -4,9 +4,14 @@ import { CartService } from './cart.service';
 
 describe('CartService', () => {
   let service: CartService;
+  let notifMock: any;
 
   beforeEach(() => {
-    service = new CartService();
+    notifMock = {
+      showSuccess: jest.fn()
+    }
+
+    service = new CartService(notifMock);
   });
 
   it('should be created (Cart Service)', () => {

@@ -6,6 +6,7 @@ describe('HomeComponent', () => {
   let prodServMock: any;
   let cartServMock: any;
   let routerMock: any;
+  let notifMock: any;
 
   beforeEach(() => {
     //Mock ProductService
@@ -23,7 +24,17 @@ describe('HomeComponent', () => {
       navigate: jest.fn(),
     };
 
-    fixture = new HomeComponent(prodServMock, cartServMock, routerMock);
+    //Mock NotificationService
+    notifMock = {
+      showSuccess: jest.fn(),
+    };
+
+    fixture = new HomeComponent(
+      prodServMock,
+      cartServMock,
+      routerMock,
+      notifMock
+    );
   });
 
   it('should be created', () => {
@@ -75,19 +86,25 @@ describe('HomeComponent', () => {
 
   it('should view a specific product', () => {
     const mockID = 3;
+
+    jest.spyOn(routerMock, 'navigate').mockReturnValue(of(mockID));
     fixture.viewProduct(mockID);
+
     expect(routerMock.navigate).toBeCalledTimes(1);
   });
 
   it('should add an item to the cart', () => {
-    fixture.allCategoryProducts = [{ id: 2, name: 'bag2' },{ id: 3, name: 'bag3' }]
-    
+    fixture.allCategoryProducts = [
+      { id: 2, name: 'bag2' },
+      { id: 3, name: 'bag3' },
+    ];
+
     const mockID = 3;
     const mockItem = [{ id: mockID, name: 'bag3' }];
 
     fixture.addToCart(mockID);
 
-    expect(cartServMock.updateCartList).toBeCalledWith(mockItem)
-    expect(cartServMock.updateCartList).toBeCalledTimes(1)
+    expect(cartServMock.updateCartList).toBeCalledWith(mockItem);
+    expect(cartServMock.updateCartList).toBeCalledTimes(1);
   });
 });

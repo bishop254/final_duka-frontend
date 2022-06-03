@@ -4,10 +4,10 @@ import { NotificationsService } from './notifications.service';
 
 describe('NotificationsService', () => {
   let service: NotificationsService;
+  let toastrMock: any;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(NotificationsService);
+    service = new NotificationsService(toastrMock);
   });
 
   it('should be created', () => {
