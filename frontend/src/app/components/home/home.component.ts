@@ -7,8 +7,8 @@ import {
   faSearch,
   faShoppingCart,
 } from '@fortawesome/free-solid-svg-icons';
-import { NotificationsService } from 'src/app/services/notifications.service';
 
+import { NotificationsService } from '../../services/notifications.service';
 import { CartService } from '../../services/cart.service';
 import { ProductsService } from '../../services/products.service';
 
